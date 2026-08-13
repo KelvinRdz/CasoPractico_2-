@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/base :: head"></head>
+<body>
+<div th:replace="layout/base :: navbar"></div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-4" style="background-color:#E0E7FF;">
+                <h2>Bienvenido a MediCare</h2>
+                <p>Usuario: <strong th:text="${username}"></strong></p>
+                <p>Roles: <strong th:text="${roles}"></strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="layout/base :: footer"></div>
+</body>
+</html>

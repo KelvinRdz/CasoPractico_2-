@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/base :: head"></head>
+<body>
+    <div th:replace="layout/base :: navbar"></div>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Roles</h3>
+            <a class="btn btn-primary" th:href="@{/roles/nuevo}">Nuevo rol</a>
+        </div>
+        <table class="table">
+            <thead><tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr></thead>
+            <tbody>
+            <tr th:each="r : ${roles}">
+                <td th:text="${r.id}"></td>
+                <td th:text="${r.nombre}"></td>
+                <td>
+                    <a th:href="@{'/roles/editar/' + ${r.id}}" class="btn btn-sm btn-secondary">Editar</a>
+                    <a th:href="@{'/roles/eliminar/' + ${r.id}}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:replace="layout/base :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/base :: head"></head>
+
+<body>
+
+    <div th:replace="layout/base :: navbar"></div>
+
+    <div class="container mt-4">
+
+        <div class="d-flex justify-content-between mb-3">
+
+            <h3>Citas Médicas</h3>
+
+            <a class="btn btn-primary"
+               th:href="@{/citas/nuevo}">
+                Nueva cita
+            </a>
+
+        </div>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Paciente</th>
+                    <th>Especialidad</th>
+                    <th>Fecha</th>
+                    <th>Costo</th>
+                    <th>Activa</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr th:each="c : ${citas}">
+
+                    <td th:text="${c.id}"></td>
+
+                    <td th:text="${c.pacienteNombre}"></td>
+
+                    <td th:text="${c.especialidad}"></td>
+
+                    <td th:text="${c.fecha}"></td>
+
+                    <td th:text="${c.costo}"></td>
+
+                    <td>
+                        <span th:text="${c.activa} ? 'Sí' : 'No'"></span>
+                    </td>
+
+                    <td>
+
+                        <a th:href="@{'/citas/editar/' + ${c.id}}"
+                           class="btn btn-sm btn-secondary">
+                            Editar
+                        </a>
+
+                        <a th:href="@{'/citas/eliminar/' + ${c.id}}"
+                           class="btn btn-sm btn-danger">
+                            Eliminar
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div th:replace="layout/base :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/base :: head"></head>
+<body>
+<div th:replace="layout/base :: navbar"></div>
+
+<div class="container mt-4">
+    <div class="card p-3">
+        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" th:field="*{nombre}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" th:field="*{email}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" th:field="*{password}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select th:field="*{rol.id}" class="form-control">
+                    <option th:each="r : ${roles}" th:value="${r.id}" th:text="${r.nombre}"></option>
+                </select>
+            </div>
+            <button class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<div th:replace="layout/base :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.medicare.MediCareApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.91 s -- in com.medicare.MediCareApplicationTests

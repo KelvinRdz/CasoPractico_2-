@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/base :: head"></head>
+<body>
+<div th:replace="layout/base :: navbar"></div>
+
+<div class="container mt-4">
+    <div class="card p-3">
+        <h4 th:text="${usuario.nombre}"></h4>
+        <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+        <p><strong>Rol:</strong> <span th:text="${usuario.rol.nombre}"></span></p>
+    </div>
+</div>
+
+<div th:replace="layout/base :: footer"></div>
+</body>
+</html>

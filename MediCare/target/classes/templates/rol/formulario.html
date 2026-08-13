@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: body">
+<head><title>Formulario Rol</title></head>
+<body>
+<div class="card p-3">
+    <form th:action="@{/roles/guardar}" th:object="${rol}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" th:field="*{nombre}" class="form-control" required>
+        </div>
+        <button class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/base :: head"></head>
+
+<body>
+
+    <div th:replace="layout/base :: navbar"></div>
+
+    <div class="container mt-4">
+
+        <div class="card p-3">
+            <h4 th:text="${cita.pacienteNombre}"></h4>
+
+            <p>
+                <strong>Especialidad:</strong>
+                <span th:text="${cita.especialidad}"></span>
+            </p>
+
+            <p>
+                <strong>Fecha:</strong>
+                <span th:text="${cita.fecha}"></span>
+            </p>
+
+            <p>
+                <strong>Costo:</strong>
+                <span th:text="${cita.costo}"></span>
+            </p>
+
+            <p>
+                <strong>Estado:</strong>
+                <span th:text="${cita.activa} ? 'Activa' : 'Inactiva'"></span>
+            </p>
+
+            <a th:href="@{/citas}" class="btn btn-secondary">
+                Volver
+            </a>
+        </div>
+
+    </div>
+
+    <div th:replace="layout/base :: footer"></div>
+
+</body>
+</html>
